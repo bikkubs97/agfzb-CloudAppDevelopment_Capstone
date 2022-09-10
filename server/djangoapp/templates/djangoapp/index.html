@@ -15,44 +15,58 @@
 
     <body>
     <!-- Remove this line the first time you edit this file -->
-     <strong>Dealership Review</strong>
-     <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                  <a class="navbar-brand" href="about">about</a>
-                  <a class="navbar-brand" href="contact">contact</a>
-                  <label for="user">username:</label>
-                  <input type="user" id="user" name="user">
-                  <label for="user">password:</label>
-                  <input type="password id="passowrd" name="password">
-                  <button type="button">sign in</button>
-                  <button type="button">sign up</button>
-                  {% if user.is_authenticated %}
-                  <p>Username: {{user.username}}, First name: {{user.first_name}}, Last name: {{user.last_name}} </p>
-                  {% endif %}
-                  {% if user.is_authenticated %}
-<div class="rightalign">
-       <div class="dropdown">
-           <button class="dropbtn">{{user.first_name}}</button>
-           <div class="dropdown-content">
-                <a href="{% url '
-                djangoapp:logout' %}">Logout</a>
-           </div>
-       </div>
-</div>
-{% endif %}
-
-                
-            </div>
-        </div>
-    </nav>
- 
-
+    <center><h1>Best Car DealerShip Website</h1></center>
+    <p></p>
     <!--Add a nav bar here -->
+    <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+              <a class="navbar-brand" href="#">Main</a>
+        </div>
+              <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Username" name="username" >
+                            <input type="password" class="form-control" placeholder="Password" name="psw" >
+                            <button class="btn btn-primary" type="submit">Login</button>
+                            <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                        </div>
+                    </form>
+                </li>
+                {% endif %}
+              </ul>
 
+        
+    </div>
+</nav>
     <!--Add a dealer table here -->
 
+    <h2><center>Dealer's Table</center></h2>
+    <table style="width:50%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>bikku</td>
+    <td>bs</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>hari</td>
+    <td>krishnan</td>
+    <td>30</td>
+  </tr>
+</table>
     </body>
- 
 
 </html>
