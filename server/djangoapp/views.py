@@ -56,6 +56,21 @@ def about(request):
         return render(request, 'djangoapp/about.html', context)
 
 
+
+
+
+def signup(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/signup.html', context)
+
+
+
+ 
+
+
+
+
 # Create a `add_review` view to submit a review
 # def add_review(request, dealer_id):
 # ...

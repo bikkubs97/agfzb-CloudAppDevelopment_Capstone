@@ -15,24 +15,44 @@
 
     <body>
     <!-- Remove this line the first time you edit this file -->
-     <strong>Welcome to my django app!</strong>
+     <strong>Dealership Review</strong>
      <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
                   <a class="navbar-brand" href="about">about</a>
                   <a class="navbar-brand" href="contact">contact</a>
+                  <label for="user">username:</label>
+                  <input type="user" id="user" name="user">
+                  <label for="user">password:</label>
+                  <input type="password id="passowrd" name="password">
+                  <button type="button">sign in</button>
+                  <button type="button">sign up</button>
+                  {% if user.is_authenticated %}
+                  <p>Username: {{user.username}}, First name: {{user.first_name}}, Last name: {{user.last_name}} </p>
+                  {% endif %}
+                  {% if user.is_authenticated %}
+<div class="rightalign">
+       <div class="dropdown">
+           <button class="dropbtn">{{user.first_name}}</button>
+           <div class="dropdown-content">
+                <a href="{% url '
+                djangoapp:logout' %}">Logout</a>
+           </div>
+       </div>
+</div>
+{% endif %}
+
                 
             </div>
         </div>
     </nav>
+ 
+
     <!--Add a nav bar here -->
 
     <!--Add a dealer table here -->
 
     </body>
-    <label for="user">username:</label>
-    <input type="user" id="user" name="user">
-    <label for="user">password:</label>
-    <input type="password id="passowrd" name="password">
+ 
 
 </html>

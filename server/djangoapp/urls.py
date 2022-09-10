@@ -22,6 +22,8 @@ urlpatterns = [
     path(route='', view=views.get_dealerships, name='index'),
     path('contact', view=views.contact),
     path('about', view=views.about),
+    path('signup', view=views.signup),
+    
     # path for dealer reviews view
 
     # path for add a review view
